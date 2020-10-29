@@ -1,0 +1,133 @@
+
+
+<!------ Include the above in your HEAD tag ---------->
+<link rel="shortcut icon" href="#" />
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link rel=¨stylesheet¨ href="{{url_for('.static', filename='assets/index.css')}}"> -->
+{% endblock %}
+
+{% block scripts %}
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="{{url_for('.static', filename='assets/myscripts.js')}}"></script> -->
+{{super()}}
+{% endblock %}
+
+
+{% block content %}
+<div class="page-header" align="center">
+    <h1>Xem Tướng Phu Thê</h1>
+</div>
+
+    <br>
+    
+    <form style="margin-left: 0.75em;" action="/" method="POST" enctype="multipart/form-data">
+        <h2>Vợ:</h2>
+        <input type="file" name="target">
+        <p></p>
+        <h2>Chồng:</h2>
+        <input type="file" name="face">
+        <p></p>
+        <input type="submit" value="Upload">
+        <p></p>
+
+
+        <h2>Kết quả:</h2>
+        
+
+        
+
+        <!-- <div class="row">
+            <div class="column">
+                {% if target_image %}
+                    <img src="{{ url_for('static', filename=target_image) }}" alt="target Image" style="height: 50%; width: auto;">
+                {% endif %}
+            </div>
+
+            <div class="column">
+                {% if face_image %}
+                    <img src="{{ url_for('static', filename=face_image) }}" alt="face Image" style="height: 50%; width: auto;">
+                {% endif %}
+            </div>
+        </div> -->
+
+        {% if target_image %}
+            <img src="{{ url_for('static', filename=target_image) }}" alt="target Image" style="height: 150px; width: auto;">
+        {% endif %}
+        {% if face_image %}
+            <img src="{{ url_for('static', filename=face_image) }}" alt="face Image" style="height: 150px; width: auto;">
+        {% endif %}
+
+        <div class="column">
+            {% if time_taken %}
+                <p><h5> Thời gian xem tướng: <b> {{ time_taken }} giây </b></h5></p>
+
+            {% endif %}
+
+            {% if similarity == 0 %}
+                {% if status == "fail_vo" %}
+                    <p> <h5> <b> Không nhận diện được khuôn mặt của vợ</b></h5></p>
+                    <p> <h5> Chú ý: <b> Nên dùng ảnh chân dung gương mặt theo chiều thẳng đứng như bên dưới </b></h5></p>
+                    <img src="/static/sample/taylor.jpg" alt="face Image" style="height: 150px; width: auto;">
+                {% endif %}
+
+                {% if status == "fail_chong" %}
+                    <p> <h5> <b> Không nhận diện được khuôn mặt của chồng</b></h5></p>
+                    <p> <h5> Chú ý: <b> Nên dùng ảnh chân dung gương mặt theo chiều thẳng đứng như bên dưới </b></h5></p>
+                    <img src="/static/sample/taylor.jpg" alt="face Image" style="height: 150px; width: auto;">
+                {% endif %}
+                
+                
+            {% endif %}
+
+            {% if status == "ok" and perfect_similarity %}
+                <p><h5> Giống nhau: <b> {{ perfect_similarity }}%</b></h5></p>
+
+                {% if perfect_similarity <= 60 %}
+                    <p> <h5><b> Anh khác hay em khác. </b></h5></p>
+                {% endif %}
+
+                {% if perfect_similarity > 90 and similarity < 100 %}
+                    <p> <h5><b> Quá giống nhau! Cùng là một người? </b></h5></p>
+                {% endif %}
+
+                {% if similarity == 100 %}
+                    <p> <h5><b> Chắc chắn cùng là một người. </b></h5></p>
+                {% endif %}
+
+                {% if 60 < perfect_similarity < 80 %}
+                    <p> <h5><b> Có tướng phu thê! </b></h5></p>
+                {% endif %}
+
+                {% if 80 <= perfect_similarity <= 90 %}
+                    <p> <h5><b> Rất có tướng phu thê!! </b></h5></p>
+                {% endif %}
+
+            {% endif %}
+
+            
+        </div>
+
+        {% if msg %}
+            {% if msg == "Cannot read anh vo" %}
+                <p> <h5><b> Không mở được ảnh Vợ </b></h5></p>
+                <p> <h5> Các định dạng ảnh hỗ trợ: jpg, jpeg, png.</h5></p>
+            {% endif %}
+            
+            {% if msg == "Cannot read anh chong" %}
+                <p> <h5><b> Không mở được ảnh Chồng </b></h5></p>
+                <p> <h5> Các định dạng ảnh hỗ trợ: jpg, jpeg, png.</h5></p>
+            {% endif %}
+
+            {% if msg == "Not enough pics" %}
+                <p> <h5><b> Cần up ảnh của cả Vợ và Chồng </b></h5></p>
+            {% endif %}
+        {% endif %}
+    </form>
+
+{% endblock %}
