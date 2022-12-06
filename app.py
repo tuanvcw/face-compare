@@ -145,4 +145,4 @@ def detect_faces():
     return app.response_class(python2json, content_type='application/json') 
 
 if __name__ == "__main__":
-    app.run(debug=True,host="0.0.0.0",port=7000)
+    app.run(debug=True,host="0.0.0.0",port=8000)
