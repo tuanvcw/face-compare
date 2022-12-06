@@ -1,8 +1,8 @@
 # Same person
-<img width="484" alt="Screenshot 2022-12-06 at 17 16 02" src="https://user-images.githubusercontent.com/2579175/205883747-2d04ca2c-9365-44bc-8bb2-09b46630e7c5.png">
+<img width="481" alt="a" src="https://user-images.githubusercontent.com/2579175/205887822-ad0296ca-7efb-4aad-b263-e85f24680811.png">
 
 # Different person
-<img width="314" alt="Screenshot 2022-12-06 at 17 17 17" src="https://user-images.githubusercontent.com/2579175/205884001-a6f93642-1018-4abe-b1c7-827ee074c851.png">
+<img width="328" alt="b" src="https://user-images.githubusercontent.com/2579175/205887845-a5bf85c0-1e3a-477b-9840-23b370259fb2.png">
 
 # Multi-Face-Comparison
 
