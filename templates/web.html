@@ -21,16 +21,16 @@
 
 {% block content %}
 <div class="page-header" align="center">
-    <h1>Xem Tướng Phu Thê</h1>
+    <h1>Face Compare</h1>
 </div>
 
     <br>
     
     <form style="margin-left: 0.75em;" action="/" method="POST" enctype="multipart/form-data">
-        <h2>Vợ:</h2>
+        <h2>Ảnh 1:</h2>
         <input type="file" name="target">
         <p></p>
-        <h2>Chồng:</h2>
+        <h2>Ảnh 2:</h2>
         <input type="file" name="face">
         <p></p>
         <input type="submit" value="Upload">
@@ -65,7 +65,7 @@
 
         <div class="column">
             {% if time_taken %}
-                <p><h5> Thời gian xem tướng: <b> {{ time_taken }} giây </b></h5></p>
+                <p><h5> Thời gian check: <b> {{ time_taken }} giây </b></h5></p>
 
             {% endif %}
 
@@ -89,11 +89,11 @@
                 <p><h5> Giống nhau: <b> {{ perfect_similarity }}%</b></h5></p>
 
                 {% if perfect_similarity <= 60 %}
-                    <p> <h5><b> Anh khác hay em khác. </b></h5></p>
+                    <p> <h5><b> Rất khác nhau </b></h5></p>
                 {% endif %}
 
                 {% if perfect_similarity > 90 and similarity < 100 %}
-                    <p> <h5><b> Quá giống nhau! Cùng là một người? </b></h5></p>
+                    <p> <h5><b> Quá giống nhau! Cùng là một người </b></h5></p>
                 {% endif %}
 
                 {% if similarity == 100 %}
@@ -101,11 +101,11 @@
                 {% endif %}
 
                 {% if 60 < perfect_similarity < 80 %}
-                    <p> <h5><b> Có tướng phu thê! </b></h5></p>
+                    <p> <h5><b> Khá giống nhau </b></h5></p>
                 {% endif %}
 
                 {% if 80 <= perfect_similarity <= 90 %}
-                    <p> <h5><b> Rất có tướng phu thê!! </b></h5></p>
+                    <p> <h5><b> Rất giống nhau </b></h5></p>
                 {% endif %}
 
             {% endif %}
