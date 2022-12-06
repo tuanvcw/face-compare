@@ -1,3 +1,9 @@
+# Same person
+<img width="484" alt="Screenshot 2022-12-06 at 17 16 02" src="https://user-images.githubusercontent.com/2579175/205883747-2d04ca2c-9365-44bc-8bb2-09b46630e7c5.png">
+
+# Different person
+<img width="314" alt="Screenshot 2022-12-06 at 17 17 17" src="https://user-images.githubusercontent.com/2579175/205884001-a6f93642-1018-4abe-b1c7-827ee074c851.png">
+
 # Multi-Face-Comparison
 
 Compare two images and it will return True or False. This is the main focus of this repo. I have attached two py file.
